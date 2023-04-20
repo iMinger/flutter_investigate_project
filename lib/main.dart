@@ -1,4 +1,4 @@
-import 'package:all_investigate_demo/scroll_to_index/main.dart';
+import 'package:all_investigate_demo/sliver_appbar/main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -49,6 +49,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<String> datas = <String>[
+    'Jump to scroll to index page',
+    'sliver appbar classic scenario',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,29 +64,29 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: ListView(
-          children: [
-            _buildScrollToIndex(context),
-          ],
-        ),
+        child: ListView.builder(
+            itemCount: datas.length,
+            itemBuilder: (BuildContext context, int index) {
+              return _getRowWidget(context, index);
+            }),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
-  Widget _buildScrollToIndex(BuildContext context) {
+  Widget _getRowWidget(BuildContext context, int index) {
     return Column(
       children: [
         GestureDetector(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return ScrollToIndexMain();
+              return SliverAppBarPage();
             }));
           },
           child: Container(
             height: 50,
             color: Colors.blue,
             alignment: Alignment.centerLeft,
-            child: const Text('Jump to scroll to index page'),
+            child: Text(datas[index]),
           ),
         ),
         Container(
