@@ -3,14 +3,14 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
-class ScrollToIndexPage3rd extends StatefulWidget {
-  ScrollToIndexPage3rd({Key? key}) : super(key: key);
+class ScrollToIndexLibraryPage extends StatefulWidget {
+  ScrollToIndexLibraryPage({Key? key}) : super(key: key);
 
   @override
-  _ScrollToIndexPage3rdState createState() => _ScrollToIndexPage3rdState();
+  _ScrollToIndexLibraryPageState createState() => _ScrollToIndexLibraryPageState();
 }
 
-class _ScrollToIndexPage3rdState extends State<ScrollToIndexPage3rd> {
+class _ScrollToIndexLibraryPageState extends State<ScrollToIndexLibraryPage> {
   static const maxCount = 100;
   static const double maxHeight = 1000;
   final random = math.Random();

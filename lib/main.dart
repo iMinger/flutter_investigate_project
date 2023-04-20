@@ -1,6 +1,4 @@
-import 'package:all_investigate_demo/scroll_to_index/scroll_to_index_3rd_library.dart';
-import 'package:all_investigate_demo/scroll_to_index/scroll_to_index_page.dart';
-import 'package:all_investigate_demo/scroll_to_index/scrollable_positiond_list_page.dart';
+import 'package:all_investigate_demo/scroll_to_index/main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -51,66 +49,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    Widget _buildScrollIndexWidget(BuildContext context) {
-      return Container(
-        height: 50,
-        color: Colors.blue,
-        child: GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return ScrollToIndexPage();
-            }));
-          },
-          child: Text('Jump to scroll to index page'),
-        ),
-      );
-    }
-
-    Widget _buildScrollIndex3rdWidget(BuildContext context) {
-      return Container(
-        height: 50,
-        color: Colors.blue,
-        child: GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return ScrollToIndexPage3rd();
-            }));
-          },
-          child: Text('Jump to scroll to index page'),
-        ),
-      );
-    }
-
-    Widget _buildScrollablePositionedListPage(BuildContext context) {
-      return Container(
-        height: 50,
-        color: Colors.blue,
-        child: GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return ScrollablePositionedListPage();
-            }));
-          },
-          child: Text('Jump to scroll to index page'),
-        ),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -122,17 +62,34 @@ class _MyHomePageState extends State<MyHomePage> {
         // in the middle of the parent.
         child: ListView(
           children: [
-            _buildScrollIndexWidget(context),
-            _buildScrollIndex3rdWidget(context),
-            _buildScrollablePositionedListPage(context),
+            _buildScrollToIndex(context),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildScrollToIndex(BuildContext context) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              return ScrollToIndexMain();
+            }));
+          },
+          child: Container(
+            height: 50,
+            color: Colors.blue,
+            alignment: Alignment.centerLeft,
+            child: const Text('Jump to scroll to index page'),
+          ),
+        ),
+        Container(
+          height: 1,
+          color: Colors.grey,
+        ),
+      ],
     );
   }
 }

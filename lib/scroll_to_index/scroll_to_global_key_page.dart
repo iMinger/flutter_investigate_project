@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 // note:  Scrollable.ensureVisible(GlobalObjectKey(scrollToIndex).currentContext!), this method is only could used in
 // small listView, it means all widgets show in
 // because the item in list out of screen will be destoryed, so need use SingleChildScrollView to wrap all item.
-class ScrollToIndexPage extends StatefulWidget {
+class ScrollToGlabalKeyPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ScrollToIndexPageState();
+    return _ScrollToGlabalKeyPageState();
   }
 }
 
-class _ScrollToIndexPageState extends State<ScrollToIndexPage> {
+class _ScrollToGlabalKeyPageState extends State<ScrollToGlabalKeyPage> {
   List<int> menus = [];
   List<Color> colors = [Colors.red, Colors.pink, Colors.blue, Colors.orange, Colors.deepPurpleAccent];
   int scrollToIndex = 4;
